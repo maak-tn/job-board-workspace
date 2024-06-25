@@ -1,0 +1,32 @@
+@import './app/common/styles/variables';
+
+// GLOBAL RESET
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// shared styling for the different forms used in this application
+// as they all follow the same structure
+form {
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+
+  .jobDescription {
+    grid-column: span 2;
+  }
+
+  .formAction {
+    grid-column: span 2;
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+  }
+}

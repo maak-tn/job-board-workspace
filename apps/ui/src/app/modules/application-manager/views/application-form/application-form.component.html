@@ -1,0 +1,26 @@
+<h1>Application Form</h1>
+<hr>
+<form [formGroup]="applicationMainForm">
+
+    <mat-form-field appearance="outline">
+        <mat-label>Your name</mat-label>
+        <input matInput formControlName="applicant_name">
+        <mat-error *ngIf="applicationMainForm.get('applicant_name')?.hasError('required')">Please fill out your name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Your E-mail</mat-label>
+        <input matInput formControlName="applicant_email">
+        <mat-error *ngIf="applicationMainForm.get('applicant_email')?.hasError('required')">Please fill out your E-mail</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="jobDescription">
+        <mat-label>Your cover letter</mat-label>
+        <textarea matInput placeholder="I would like to apply for this position..." formControlName="application_text"></textarea>
+        <mat-error *ngIf="applicationMainForm.get('applicant_text')?.hasError('required')">Application text is required!</mat-error>
+    </mat-form-field>
+
+    <div class="formAction">
+        <button mat-stroked-button (click)="onSave()" [disabled]="!applicationMainForm.valid">Save</button>
+    </div>
+</form>
